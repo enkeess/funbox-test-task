@@ -1,0 +1,17 @@
+$bg-color--primary: #f2f2f2;
+$bg-color--dark: #000000;
+$bg-color--accent-1: #1698d9;
+$bg-color--accent-2: #d91667;
+$bg-color--disabled: #b3b3b3;
+
+$font-color--primary: #000000;
+$font-color--secondary: #666;
+$font-color--light: #fff;
+$font-color--accent-1: #1698d9;
+$font-color--accent-2: #ffff66;
+$font-color--disabled: #b3b3b3;
+
+$card-accent--default: $bg-color--accent-1;
+$card-accent--default-hover: lighten($bg-color--accent-1, 7%);
+$card-accent--picked: $bg-color--accent-2;
+$card-accent--picked-hover: lighten($bg-color--accent-2, 7%);

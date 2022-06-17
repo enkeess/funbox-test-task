@@ -1,0 +1,174 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
+.card {
+	width: 320px;
+	height: 480px;
+	background-color: $bg-color--primary;
+	background-image: url('../../img/cat.png');
+	background-repeat: no-repeat;
+	background-position: -24px 208px;
+	clip-path: polygon(14.75% 0, 100% 0, 100% 100%, 0 100%, 0 9.75%);
+	border-radius: 12px;
+	border: 4px solid $card-accent--default;
+	position: relative;
+	padding: 21px 50px;
+	transition: all 0.3s ease-in;
+
+	&::before{
+		position: absolute;
+		top: -15px;
+		left: 15px;
+		content: '';
+		width: 7px;
+		height: 70px;
+		background: $card-accent--default;
+		display: block;
+		-webkit-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
+		transition: all 0.3s ease-in;
+	}
+		
+	&__weight {
+		position: absolute;
+		bottom: 16px;
+		right: 16px;
+	}
+
+	&__subtitle {
+		color: $font-color--secondary;
+	}
+
+	&__title {
+		font-weight: $font-weight--bold;
+		font-size: 48px;
+		line-height: 56px;
+		margin-top: 5px;
+	}
+
+	&__taste {
+		font-weight: $font-weight--bold;
+		font-size: 24px;
+		line-height: 28px;
+	}
+
+	&__addition {
+		margin-top: 15px;
+	}
+}
+
+.card_default {
+	.card:hover {
+		border-color: $card-accent--default-hover;
+
+		&::before {
+			background: $card-accent--default-hover;
+		}
+
+		.card {
+			&__weight {
+				background-color: $card-accent--default-hover;
+			}
+		}
+	}
+}
+
+.card_selected {
+	border-color: $card-accent--picked;
+	&::before {
+		background: $card-accent--picked;
+	}
+	.card {
+		&__weight {
+			background-color: $card-accent--picked;
+		}
+	}
+}
+
+.card_selected {
+	&:hover {
+		border-color: $card-accent--picked-hover;
+		&::before {
+			background: $card-accent--picked-hover;
+		}
+		.card {
+			&__weight {
+				background-color: $card-accent--picked-hover;
+			}
+		}
+	}
+}
+
+.card_disabled {
+	&::after {
+		content: '';
+		position: absolute;
+		height: calc(100% + 8px);
+		width: calc(100% + 8px);
+		top: -4px;
+		left: -4px;
+		background-color: $bg-color--disabled;
+		opacity: 0.5;
+		border-radius: 12px;
+	}
+
+	&::before {
+		background-color: $bg-color--disabled;
+	}
+
+	border-color: $bg-color--disabled;
+
+	.card {
+		&__weight {
+			background-color: $bg-color--disabled;
+		}
+		&__subtitle, &__addition, &__title, &__taste {
+			color: $font-color--disabled;
+		}
+	}
+}
+
+.addition {
+	color: $font-color--secondary;
+	
+	font-size: 14px;
+	line-height: 16px;
+	span {
+		font-weight: $font-weight--bold;
+		margin-right: 5px;
+	}
+	
+	transition: all 0.3s ease-in;
+}
+
+.weight {
+	height: 80px;
+	width: 80px;
+	background-color: $card-accent--default;
+	color: $font-color--light;
+
+	border-radius: 50%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+
+	transition: all 0.3s ease-in;
+
+	&__count {
+		font-family: 'Trebuchet MS';
+		font-style: normal;
+		
+		font-size: 42px;
+		line-height: 22px;
+		margin-top: 20px;
+	}
+
+	&__des {
+		font-size: 21px;
+		line-height: 22px;
+		margin-top: 10px;
+	}	
+}

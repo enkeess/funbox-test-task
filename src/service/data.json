@@ -1,0 +1,45 @@
+{
+	"items": [{
+		"id": 1,
+		"weight": 0.5,
+		"taste": "с фуа-гра",
+		"descr": "Печень утки разварная с артишоками.",
+		"addition": [{
+			"value": 10,
+			"descr": "порций"
+		}, {
+			"value": null,
+			"descr": "мышь в подарок"
+		}],
+		"isDisabled": false
+	},{
+		"id": 2,
+		"weight": 2,
+		"taste": "с рыбой",
+		"descr": "Головы щучьи с чесноком да свежайшая сёмгушка.",
+		"addition": [{
+			"value": 40,
+			"descr": "порций"
+		}, {
+			"value": 2,
+			"descr": "мыши в подарок"
+		}],
+		"isDisabled": false
+	}, {
+		"id": 3,
+		"weight": 5,
+		"taste": "с курой",
+		"descr": "Филе из цыплят с трюфелями в бульоне.",
+		"addition": [{
+			"value": 100,
+			"descr": "порций"
+		}, {
+			"value": 5,
+			"descr": "мышей в подарок"
+		}, {
+			"value": null,
+			"descr": "заказчик доволен"
+		}],
+		"isDisabled": true
+	}]
+}

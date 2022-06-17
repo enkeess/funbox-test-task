@@ -1,0 +1,29 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
+.product {
+	&__descr {
+		margin-top: 14px;
+		
+		font-size: 13px;
+		line-height: 15px;
+		color: $font-color--light;
+		text-align: center;
+		&_disabled {
+			color: $font-color--accent-2;
+		}
+	}
+
+	&__btn {
+		color: $font-color--accent-1;
+		font-weight: $font-weight--bold;
+		border: none;
+		outline: none;
+		background: none;
+		cursor: pointer;
+		margin-left: 4px;
+		>span {
+			border-bottom: dashed 1px;
+		}
+	}
+}

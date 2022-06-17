@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import styles from './App.module.scss';
+import { ProductList } from './components';
+import { productService } from './service';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+
+	
+	const [items, setItems] = useState([])
+	
+	productService.getProducts()
+		.then(res => {
+			setItems(() => res?.items || []);
+			// console.log(products);
+		})
+		.catch(() => {
+			console.log('Error');
+		})
+
+	return(
+		<div className={styles.app}>
+			<h1 className={styles.app__title}>Ты сегодня покормил кота?</h1>
+			<ProductList classes={[styles.app__productList]} value={items}/>
+		</div>
+	);
+};
+
 
 export default App;
