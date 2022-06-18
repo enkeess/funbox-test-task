@@ -1,7 +1,7 @@
 import styles from './Card.module.scss';
 import classNames from 'classnames';
 import { nanoid } from 'nanoid';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 const Card = (props) => {
 
@@ -12,15 +12,16 @@ const Card = (props) => {
 
 	const { classes = [], action = null } = props;
 
-	const getAdditions = () => {
+	const additions = useMemo(() => {
+		console.log('memo');
 		return addition.map(({value, descr}) => {
 			return <p key={nanoid()} className={styles.addition__item}>
 				<span>{value}</span>
 				{descr}
 			</p>
 		})
-	}
-		
+	}, [addition])
+	
 	const cardClassName = classNames(styles.card, ...classes, {
 		[ styles.card_default  ] : !isSelected && !isDisabled,
 		[ styles.card_selected ] : isSelected && !isDisabled,
@@ -32,7 +33,6 @@ const Card = (props) => {
 
 	useEffect(() => {
 		isSelected && setIsIn(false);
-
 	}, [isSelected])
 
 	return(
@@ -55,9 +55,8 @@ const Card = (props) => {
 			<p className={styles.card__title}>Нямушка</p>
 			<p className={styles.card__taste}>{taste}</p>
 			<div className={classNames(styles.addition, styles.card__addition)}>
-				{getAdditions()}
-			</div>
-			
+				{additions}
+			</div>		
 			
 			<div className={classNames(styles.weight, styles.card__weight)}>
 				<span className={styles.weight__count}>

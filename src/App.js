@@ -3,15 +3,12 @@ import styles from './App.module.scss';
 import { ProductList } from './components';
 import { productService } from './service';
 
-const App = () => {
-
-	
+const App = () => {	
 	const [items, setItems] = useState([])
 	
 	productService.getProducts()
 		.then(res => {
 			setItems(() => res?.items || []);
-			// console.log(products);
 		})
 		.catch(() => {
 			console.log('Error');
@@ -24,6 +21,5 @@ const App = () => {
 		</div>
 	);
 };
-
 
 export default App;
