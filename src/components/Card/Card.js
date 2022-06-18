@@ -13,7 +13,6 @@ const Card = (props) => {
 	const { classes = [], action = null } = props;
 
 	const additions = useMemo(() => {
-		console.log('memo');
 		return addition.map(({value, descr}) => {
 			return <p key={nanoid()} className={styles.addition__item}>
 				<span>{value}</span>
@@ -32,17 +31,16 @@ const Card = (props) => {
 	const [wasOut, setWaswOut] = useState(false);
 
 	useEffect(() => {
-		isSelected && setIsIn(false);
+	    isSelected && setIsIn(false);
 	}, [isSelected])
 
 	return(
 		<div 
 			className={cardClassName} 
 			onClick={() => {action(); setWaswOut(false);}} 
-			onMouseEnter={() => { wasOut && setIsIn(true)} } 
+			onMouseEnter={() => { !isDisabled && wasOut && setIsIn(true)} } 
 			onMouseLeave={() => {setIsIn(false); setWaswOut(true)}}
 		>
-			
 			<p className={styles.card__subtitle}>
 				{ isSelected && isIn && wasOut
 					?	
